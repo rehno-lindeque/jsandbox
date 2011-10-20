@@ -67,7 +67,12 @@
 		delete self.input;
 		delete self.onmessage; // in case the code defined it
 		
-		postMessage(jsonStringify(response));
+    try {
+      // Attempt to use structured clone in browsers that support it
+  		postMessage(response);
+    } catch (e) {
+  		postMessage(jsonStringify(response));
+    }
 	};
 	
 	if (self.addEventListener) {

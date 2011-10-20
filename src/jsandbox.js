@@ -125,12 +125,18 @@ var JSandbox = (function (self) {
 			
 			this[$requests][id] = options;
 			
-			this[$worker].postMessage(jsonStringify({
-				id       : id,
-				method   : method,
-				data     : data,
-				input    : input
-			}));
+      var msg = {
+			  id       : id,
+			  method   : method,
+			  data     : data,
+			  input    : input
+		  };
+      try {
+        // Attempt to use structured clone in browsers that support it
+			  this[$worker].postMessage(msg);
+      } catch (e) {
+        this[$worker].postMessage(jsonStringify(msg));
+      }
 		
 			return id;
 		};
