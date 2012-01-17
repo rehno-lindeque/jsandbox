@@ -179,6 +179,11 @@ var JSandbox = (function (self) {
 		}
 		return id;
 	};
+
+  Sandbox.create = function (workerUrl) {
+    if (workerUrl != null)
+      Sandbox.url = workerUrl;
+  };
 	
 	if (typeof doc !== undef_type) {
 		var linkElems = doc.getElementsByTagName("link");
