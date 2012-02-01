@@ -91,12 +91,11 @@
 	self.importScripts       =
 	self.XMLHttpRequest      =
 	self.postMessage         =
-	self.dispatchEvent       =
+	//self.dispatchEvent       = (In firefox dispatchEvent is used internally by the browser - it cannot be dereferenced)
 	// in case IE implements web workers
 	self.attachEvent         =
 	self.detachEvent         =
 	self.ActiveXObject       =
-	
-	undefined;
+	function(){};
 	
 }(self, eval));
