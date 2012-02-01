@@ -13,9 +13,9 @@ newcap: true, immed: true, maxerr: 1000, strict: true */
 
 /*! @source http://purl.eligrey.com/github/jsandbox/blob/master/src/jsandbox.js*/
 
-"use strict";
-
 var JSandbox = (function (self) {
+  "use strict";
+
   var undef_type = "undefined",
   doc            = self.document,
   Worker         = self.Worker;
