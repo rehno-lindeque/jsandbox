@@ -198,5 +198,9 @@ var JSandbox = (function (self) {
   }
   
   return Sandbox;
-}(self)),
+})(typeof window !== "undefined" && window !== null ? window : global),
 Sandbox = JSandbox;
+
+if (typeof exports !== "undefined" && exports !== null )
+  exports.JSandbox = JSandbox;
+
